@@ -4,7 +4,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-# We are using Snyk tool as  an example to perform configuration scan. I have previously worked on this tool
+# We are using Snyk tool as  an example to perform configuration scan. I have previously worked on this tool and hence this example.
 jobs:
 - job: 'SnykScan'
   displayName: 'Run Snyk Security Scan'
