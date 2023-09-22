@@ -1,0 +1,26 @@
+trigger:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+# We are using Snyk tool as  an example to perform configuration scan. I have previously worked on this tool
+jobs:
+- job: 'SnykScan'
+  displayName: 'Run Snyk Security Scan'
+  steps:
+  - script: |
+      # Install Node.js as part of the pre-requisites
+      curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+      sudo apt-get install -y nodejs
+
+      # Install Snyk CLI globally
+      sudo npm install -g snyk
+
+      # Authenticate with Snyk using your API token
+      snyk auth $SNYK_API_TOKEN
+
+      # Run Snyk security scan on your code
+      snyk test
+    displayName: 'Run Snyk Security Scan'
+
