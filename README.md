@@ -1,1 +1,1 @@
-Terraform code to deploy ECR and perform Security scan using Snyk
+Terraform code to deploy ACR and perform Security scan using Snyk
